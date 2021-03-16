@@ -146,12 +146,14 @@ export default {
      },
    },
    mounted() {
-     this.saveWords = JSON.parse(localStorage.getItem("save-words"));
+     if(this.saveWords.length > 0){ this.saveWords = JSON.parse(localStorage.getItem("save-words"));}
+    
      this.searchWord = localStorage.getItem("search-word");
 
      this.picked = localStorage.getItem("picked");
      this.GetData();
-     this.showWord = JSON.parse(localStorage.getItem("show-word"));
+     if(this.showWord.length > 0){this.showWord = JSON.parse(localStorage.getItem("show-word"));}
+     
    },
   methods: {
     GetData() {
