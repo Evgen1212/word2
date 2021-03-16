@@ -131,30 +131,31 @@ export default {
       showWord: [],
     };
   },
-   watch: {
-     picked() {
-       localStorage.setItem("picked", this.picked);
-     },
-     saveWords() {
-       localStorage.setItem("save-words", JSON.stringify(this.saveWords));
-     },
-     searchWord() {
-       localStorage.setItem("search-word", this.searchWord);
-     },
-     showWord() {
-       localStorage.setItem("show-word", JSON.stringify(this.showWord));
-     },
-   },
-   mounted() {
-     if(this.saveWords.length > 0){ this.saveWords = JSON.parse(localStorage.getItem("save-words"));}
-    
-     this.searchWord = localStorage.getItem("search-word");
-
-     this.picked = localStorage.getItem("picked");
-     this.GetData();
-     if(this.showWord.length > 0){this.showWord = JSON.parse(localStorage.getItem("show-word"));}
-     
-   },
+  watch: {
+    picked() {
+      localStorage.setItem("picked", this.picked);
+    },
+    saveWords() {
+      localStorage.setItem("save-words", JSON.stringify(this.saveWords));
+    },
+    searchWord() {
+      localStorage.setItem("search-word", this.searchWord);
+    },
+    showWord() {
+      localStorage.setItem("show-word", JSON.stringify(this.showWord));
+    },
+  },
+  mounted() {
+    this.searchWord = localStorage.getItem("search-word");
+    if (localStorage.getItem("save-words")) {
+      this.saveWords = JSON.parse(localStorage.getItem("save-words"));
+    }
+    if (localStorage.getItem("show-word")) {
+      this.showWord = JSON.parse(localStorage.getItem("show-word"));
+    }
+    this.picked = localStorage.getItem("picked");
+    this.GetData();
+  },
   methods: {
     GetData() {
       this.$axios
