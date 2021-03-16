@@ -1,4 +1,4 @@
 module.exports = {
-    publicPath: '/word/'
+    publicPath: '/word2/'
 
 }
