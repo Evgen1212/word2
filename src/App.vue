@@ -131,28 +131,28 @@ export default {
       showWord: [],
     };
   },
-  // watch: {
-  //   picked() {
-  //     localStorage.setItem("picked", this.picked);
-  //   },
-  //   saveWords() {
-  //     localStorage.setItem("save-words", JSON.stringify(this.saveWords));
-  //   },
-  //   searchWord() {
-  //     localStorage.setItem("search-word", this.searchWord);
-  //   },
-  //   showWord() {
-  //     localStorage.setItem("show-word", JSON.stringify(this.showWord));
-  //   },
-  // },
-  // created() {
-  //   this.saveWords = JSON.parse(localStorage.getItem("save-words"));
-  //   this.searchWord = localStorage.getItem("search-word");
+   watch: {
+     picked() {
+       localStorage.setItem("picked", this.picked);
+     },
+     saveWords() {
+       localStorage.setItem("save-words", JSON.stringify(this.saveWords));
+     },
+     searchWord() {
+       localStorage.setItem("search-word", this.searchWord);
+     },
+     showWord() {
+       localStorage.setItem("show-word", JSON.stringify(this.showWord));
+     },
+   },
+   mounted() {
+     this.saveWords = JSON.parse(localStorage.getItem("save-words"));
+     this.searchWord = localStorage.getItem("search-word");
 
-  //   this.picked = localStorage.getItem("picked");
-  //   this.GetData();
-  //   this.showWord = JSON.parse(localStorage.getItem("show-word"));
-  // },
+     this.picked = localStorage.getItem("picked");
+     this.GetData();
+     this.showWord = JSON.parse(localStorage.getItem("show-word"));
+   },
   methods: {
     GetData() {
       this.$axios
